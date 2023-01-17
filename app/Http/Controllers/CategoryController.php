@@ -22,9 +22,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            'category' => 'required',
+        ]);
+
+        Category::create([
+            'category' => $request->category,
+        ]);
+        return redirect('/categories')->with('success', 'data berhasil ditambahkan');
     }
 
     /**

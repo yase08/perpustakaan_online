@@ -20,47 +20,9 @@
 
 <body>
     <div class="container-scroller d-flex">
-        <!-- partial:./partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-                <li class="nav-item sidebar-category">
-                    <p>WIKBOOK</p>
-                    <span></span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">
-                        <i class="mdi mdi-view-quilt menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>
-                @if (Auth::user()->role == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users">
-                            <i class="mdi mdi-account menu-icon"></i>
-                            <span class="menu-title">User</span>
-                        </a>
-                    </li>
-                @endif
-                @if (Auth::user()->role == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books">
-                            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                            <span class="menu-title">Book</span>
-                        </a>
-                    </li>
-                @endif
-                @if (Auth::user()->role == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/categories">
-                            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                            <span class="menu-title">Categories</span>
-                        </a>
-                    </li>
-                @endif
-            </ul>
-        </nav>
-        <!-- partial -->
+        @include('../layouts/sidebar')
         <div class="container-fluid page-body-wrapper">
+            @include('../layouts/navbar')
             <div class="main-panel">
                 <div class="content-wrapper">
                     <h3>Create Book</h3>
@@ -122,12 +84,90 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12 grid-margin stretch-card mt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Table Book</h4>
+                                    <div class="table-responsive pt-3">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        No
+                                                    </th>
+                                                    <th>
+                                                        Title
+                                                    </th>
+                                                    <th>
+                                                        Author
+                                                    </th>
+                                                    <th>
+                                                        Publisher
+                                                    </th>
+                                                    <th>
+                                                        ISBN
+                                                    </th>
+                                                    <th>
+                                                        Synopsis
+                                                    </th>
+                                                    <th>
+                                                        Cover Book
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($books as $book)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $loop->iteration }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $book->title }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $book->author }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $book->publisher }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $book->isbn }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $book->synopsis }}
+                                                        </td>
+                                                        <td>
+                                                            <img src="storage/images/{{ $book->cover_book }}"
+                                                                width="480px" height="480px">
+                                                        </td>
+                                                        <td>
+                                                            <form action="{{ route('editBook', $book->id) }}"
+                                                                method="get">
+                                                                <button
+                                                                    class="btn btn-success btn-rounded btn-fw">Edit</button>
+                                                            </form>
+                                                            <form class="d-inline"
+                                                                action="{{ route('deleteStore', $book->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <button
+                                                                    class="btn btn-danger btn-rounded btn-fw">Delete</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
-            <!-- partial:../../partials/_footer.html -->
-            <!-- partial -->
         </div>
         <!-- main-panel ends -->
     </div>

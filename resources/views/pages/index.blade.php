@@ -45,7 +45,6 @@
                         <li class="nav-item"><a class="nav-link fw-medium active" aria-current="page"
                               href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/libraries">Libraries</a></li>
                         <form class="ps-lg-3">
                             <a href="/login"
                                 class="btn btn-lg btn-primary rounded-pill bg-gradient font-base order-0 text-decoration-none">Login</a>

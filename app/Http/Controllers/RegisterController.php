@@ -12,7 +12,7 @@ class RegisterController extends Controller
   {
     $request->validate([
       'name' => 'required',
-      'email' => 'required|email:rfc,dns',
+      'email' => 'required|email:rfc',
       'address' => 'required',
       'phone' => 'required',
       'password' => 'required',

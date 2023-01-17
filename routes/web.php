@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,15 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Books
 Route::post('/create-book', [BookController::class, 'create'])->name('create-book');
+
+// Category
+Route::post('/create-category', [CategoryController::class, 'create'])->name('create-category');
+
+// Data
+Route::get('/editStore/{users:id}', [UserController::class, 'editStore'])->name('editStore');
+Route::post('/updateStore/{users:id}', [UserController::class, 'updateStore'])->name('updateStore');
+Route::get('/editCategory/{category:id}', [UserController::class, 'editCategory'])->name('editCategory');
+Route::post('/updateCategory/{category:id}', [UserController::class, 'updateCategory'])->name('updateCategory');
+Route::get('/editBook/{book:id}', [UserController::class, 'editBook'])->name('editBook');
+Route::post('/updateBook/{book:id}', [UserController::class, 'updateBook'])->name('updateBook');
+Route::post('/deleteStore/{id}', [UserController::class, 'deleteStore'])->name('deleteStore');
