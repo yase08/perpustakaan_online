@@ -79,7 +79,7 @@
                                                                     class="btn btn-success btn-rounded btn-fw">Edit</button>
                                                             </form>
                                                             <form class="d-inline"
-                                                                action="{{ route('deleteStore', $category->id) }}"
+                                                                action="{{ route('deleteCategory', $category->id) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 <button

@@ -43,7 +43,7 @@
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
                         <li class="nav-item"><a class="nav-link fw-medium active" aria-current="page"
-                              href="#">Home</a></li>
+                                href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
                         <form class="ps-lg-3">
                             <a href="/login"
@@ -115,235 +115,36 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item mb-5 border border-x-0 border-bottom-0 border-200">
-                                <div class="accordion-header" id="heading1">
-                                    <div class="accordion-button" role="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        <div class="row w-100 justify-content-center">
-                                            <div class="col-sm-6 font-base"><span
-                                                    class="mb-0 fw-bold text-start fs-1 text-1200">The Lord of the
-                                                    Rings</span>
-                                                <p class="my-2">J.R.R Tolkien</p>
+                            @foreach ($books as $book)
+                                <div class="accordion-item mb-5 border border-x-0 border-bottom-0 border-200">
+                                    <div class="accordion-header" id="heading3">
+                                        <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                            <div class="row w-100">
+                                                <div class="col-sm-6 font-base"><span
+                                                        class="mb-0 fw-bold text-start fs-1 text-1200">{{ $book->title }}</span>
+                                                    <p class="my-2">{{ $book->author }}</p>
+                                                </div>
                                             </div>
-                                            <div class="col-8 col-sm-4">
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                            </div>
-                                            <div class="col-4 col-sm-2 text-end">
-                                                <h5 class="mb-0 font-base fw-bold">$21</h5>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-collapse collapse shadow-lg" id="collapse3"
+                                        aria-labelledby="heading3" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row justify-content-center-center">
+                                                <div class="col-12 col-sm-2"><img
+                                                        class="img-fluid d-block mx-auto mx-sm-0"
+                                                        src="storage/images/{{ $book->cover_book }}" width="130"
+                                                        alt="..." /></div>
+                                                <div
+                                                    class="col-12 col-sm-9 mt-4 mt-sm-0 d-sm-block d-flex flex-column">
+                                                    <p>{{ $book->synopsis }}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-collapse collapse shadow-lg show" id="collapse1"
-                                    aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="row justify-content-center-center">
-                                            <div class="col-12 col-sm-2"><img
-                                                    class="img-fluid d-block mx-auto mx-sm-0"
-                                                    src="assets/img/gallery/lord-rings.png" width="130"
-                                                    alt="..." /></div>
-                                            <div class="col-12 col-sm-9 mt-4 mt-sm-0 d-sm-block d-flex flex-column">
-                                                <ul>
-                                                    <li class="fw-semi-bold text-black">Copies Sold: 150 million</li>
-                                                </ul>
-                                                <p>The Lord of the Rings is an epic high-fantasy novel written by
-                                                    English author J. R. R. Tolkien. The story began as a sequel to
-                                                    Tolkiens 1937 fantasy novel The Hobbit, but eventually developed
-                                                    into... <button type="button"
-                                                        class="btn btn-link px-0 font-base">read more</button> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item mb-5 border border-x-0 border-bottom-0 border-200">
-                                <div class="accordion-header" id="heading2">
-                                    <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                                        <div class="row w-100 justify-content-center">
-                                            <div class="col-sm-6 font-base"><span
-                                                    class="mb-0 fw-bold text-start fs-1 text-1200">A Tale of Two
-                                                    Cities</span>
-                                                <p class="my-2">Charles Dickens</p>
-                                            </div>
-                                            <div class="col-8 col-sm-4">
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                            </div>
-                                            <div class="col-4 col-sm-2 text-end">
-                                                <h5 class="mb-0 font-base fw-bold">$16</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-collapse collapse shadow-lg" id="collapse2"
-                                    aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="row justify-content-center-center">
-                                            <div class="col-12 col-sm-2"><img
-                                                    class="img-fluid d-block mx-auto mx-sm-0"
-                                                    src="assets/img/gallery/two-cities.jpg" width="130"
-                                                    alt="..." /></div>
-                                            <div class="col-12 col-sm-9 mt-4 mt-sm-0 d-sm-block d-flex flex-column">
-                                                <ul>
-                                                    <li class="fw-semi-bold text-black">Copies Sold: 150 million</li>
-                                                </ul>
-                                                <p>The Lord of the Rings is an epic high-fantasy novel written by
-                                                    English author J. R. R. Tolkien. The story began as a sequel to
-                                                    Tolkiens 1937 fantasy novel The Hobbit, but eventually developed
-                                                    into... <button type="button"
-                                                        class="btn btn-link px-0 font-base">read more</button> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item mb-5 border border-x-0 border-bottom-0 border-200">
-                                <div class="accordion-header" id="heading3">
-                                    <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-                                        <div class="row w-100 justify-content-center">
-                                            <div class="col-sm-6 font-base"><span
-                                                    class="mb-0 fw-bold text-start fs-1 text-1200">The Little
-                                                    Princess</span>
-                                                <p class="my-2">Antoine de Saint-Exupéry</p>
-                                            </div>
-                                            <div class="col-8 col-sm-4">
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="#FFCC00"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                    </path>
-                                                </svg>
-                                            </div>
-                                            <div class="col-4 col-sm-2 text-end">
-                                                <h5 class="mb-0 font-base fw-bold">$11</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-collapse collapse shadow-lg" id="collapse3"
-                                    aria-labelledby="heading3" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="row justify-content-center-center">
-                                            <div class="col-12 col-sm-2"><img
-                                                    class="img-fluid d-block mx-auto mx-sm-0"
-                                                    src="assets/img/gallery/little-princess.jpg" width="130"
-                                                    alt="..." /></div>
-                                            <div class="col-12 col-sm-9 mt-4 mt-sm-0 d-sm-block d-flex flex-column">
-                                                <ul>
-                                                    <li class="fw-semi-bold text-black">Copies Sold: 150 million</li>
-                                                </ul>
-                                                <p>The Lord of the Rings is an epic high-fantasy novel written by
-                                                    English author J. R. R. Tolkien. The story began as a sequel to
-                                                    Tolkiens 1937 fantasy novel The Hobbit, but eventually developed
-                                                    into... <button type="button"
-                                                        class="btn btn-link px-0 font-base">read more</button> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 d-flex justify-content-center">
-                                <button class="btn btn-lg btn-primary rounded-pill font-base" type="submit">Find More
-                                </button>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- end of .container-->
@@ -372,7 +173,7 @@
                     <div class="col-auto mb-2">
                         <p class="mb-0 fs--1 my-2 text-center">&copy; Copyright
                             </svg><a href="https://themewagon.com/" target="_blank">WIKBOOK. </a>
-                             All right reserved
+                            All right reserved
                         </p>
                     </div>
                     <div class="col-auto my-4">

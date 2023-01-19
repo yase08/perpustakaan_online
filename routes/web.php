@@ -50,3 +50,12 @@ Route::post('/updateCategory/{category:id}', [UserController::class, 'updateCate
 Route::get('/editBook/{book:id}', [UserController::class, 'editBook'])->name('editBook');
 Route::post('/updateBook/{book:id}', [UserController::class, 'updateBook'])->name('updateBook');
 Route::post('/deleteStore/{id}', [UserController::class, 'deleteStore'])->name('deleteStore');
+Route::post('/deleteBook/{id}', [UserController::class, 'deleteBook'])->name('deleteBook');
+Route::post('/deleteCategory/{id}', [UserController::class, 'deleteCategory'])->name('deleteCategory');
+Route::get('/show-book/{book:id}', [DashboardController::class, 'book'])->name('show-book');
+Route::get('/category/{category:id}', [DashboardController::class, 'category'])->name('category');
+// Route::post('/updateDownload/{book:id}', [UserController::class, 'updateDownload'])->name('updateDownload');
+
+
+// PDF
+Route::get('/pdf/{book:id}', [UserController::class, 'pdf'])->name('pdf');

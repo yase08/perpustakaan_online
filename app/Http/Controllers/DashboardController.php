@@ -11,8 +11,12 @@ class DashboardController extends Controller
 {
   public function index()
   {
-    $books = Book::with('category')->paginate('8');
-    return view('dashboard.index', compact('books'));
+    $books = Book::with('category')->paginate('3');
+    return view('dashboard.index', [
+      'newest' => Book::orderBy('download', 'desc')->take(3)->get(),
+      'categories' => Category::all(),
+      'books' => $books
+    ]);
   }
   public function users()
   {
@@ -23,15 +27,33 @@ class DashboardController extends Controller
   }
   public function books()
   {
+    $books = Book::with('category')->paginate('8');
     return view('dashboard.books', [
+      'books' => $books,
       'categories' => Category::all(),
-      'books' => Book::all(),
     ]);
   }
+
   public function categories()
   {
     return view('dashboard.categories', [
       'categories' => Category::all()
+    ]);
+  }
+
+  public function book(Book $book)
+  {
+    return view('dashboard.show-book', [
+      'book' => $book,
+    ]);
+  }
+
+  public function category($id)
+  {
+    $books = Category::where('id', $id)->first();
+    return view('dashboard.category', [
+      'books' => $books->book,
+      'categories' => Category::all(),
     ]);
   }
 }

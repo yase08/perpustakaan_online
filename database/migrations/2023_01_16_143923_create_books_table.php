@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->integer('download')->nullable()->default(0);
             $table->string('title');
             $table->string('author');
             $table->string('publisher');
-            $table->string('isbn');
-            $table->string('synopsis');
+            $table->bigInteger('isbn');
+            $table->longText('synopsis');
             $table->string('cover_book');
             $table->bigInteger('category_id');
             $table->timestamps();
